@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recipe AI - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#116DED",
+                        "primary-light": "#eff6ff",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --brand-blue: #116DED;
+        }
+        body {
+            font-family: "Inter", sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(248, 250, 252, 0.94), rgba(248, 250, 252, 0.94)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuA8RsvXiQKp5ac7E7ju4gKeKshfGSnAj03HG9UvyTWv57AXzPJEmWy_phPmbgmDyTHWhmDPZuB7PZ-1TiFce3eLxHQlPt5s4PVFx5g8jdIle27CtoG0b9hlcujgx3hYPnzRb5UqelT1PHtzQwbzrcnM1eh6Cm4m1CNXpusTW5bO1PI3X5E1SG41M6MFCTyFJD6KpyoupDffL2RgElO_NpggI2FRQiOuwj8TDhoyNp2HdBYan7n_cqUIn0BvMCorpVrfWtSPxEGDA-dm);
+            background-size: cover;
+            background-position: center;
+        }
+        .dark .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBDIEYprIKcdE7Xg959TfekYVu2fN6mmceyKmsM-nV1lzWI8LAnZmH9HOVePTNOHq2tBUl-JZJinYYayHrKgEYG8Wzua6U59e9fCN5pZLFQYQaPonjzpOPClapge9s20WLusFxxb-YobxPk0JunLh5syK-vEfWesMTpXDIAeWs1QPMIvHNysc5j00mIFwD5m1tEF3r-iTuDgJg9UfnfOmaNKRs90LHoJVGCvJcq2zK8FDkMs3gIq3mhBL1X0eJxOJuu-NeyoKZihpsX);
+        }
+        .nav-link {
+            @apply flex items-center gap-2 px-1 h-full border-b-2 border-transparent text-slate-500 hover:text-[var(--brand-blue)] transition-all duration-200;
+        }
+        .nav-link.active {
+            @apply text-[var(--brand-blue)] border-[var(--brand-blue)];
+        }
+        .nav-text {
+            @apply text-sm font-semibold;
+        }
+        .btn-primary {
+            background-color: #116DED;
+            color: white;
+        }
+        .theme-toggle {
+            width: 56px;
+            height: 30px;
+            border-radius: 9999px;
+            padding: 3px;
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 9999px;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            transform: translateX(0);
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-icon-dark { display: none; }
+        .theme-toggle.is-dark {
+            background: #1f2937;
+            border-color: #334155;
+        }
+        .theme-toggle.is-dark .theme-toggle-thumb {
+            transform: translateX(24px);
+            background: #0f172a;
+            color: #f8fafc;
+        }
+        .theme-toggle.is-dark .theme-toggle-icon-light { display: none; }
+        .theme-toggle.is-dark .theme-toggle-icon-dark { display: inline-flex; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<div class="relative flex h-full min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 z-50 flex items-center px-4 md:px-8">
+<div class="flex-1 flex items-center">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center text-[#116DED]">
+<span class="material-symbols-outlined text-3xl font-bold">skillet</span>
+</div>
+<span class="text-[#116DED] text-xl font-bold tracking-tight">Recipe AI</span>
+</div>
+</div>
+        <nav class="hidden md:flex items-center gap-8 h-full">
+            <a class="nav-link active" href="LandingPage.html">
+                <span class="nav-text">Home</span>
+            </a>
+            <a class="nav-link" href="SuggestedRecipe.html">
+                <span class="nav-text">Recipes</span>
+            </a>
+            <a class="nav-link" href="Recipe.html">
+                <span class="nav-text">Recipe Detail</span>
+            </a>
+            <a class="nav-link" href="ShoppingList.html">
+                <span class="nav-text">Shopping List</span>
+            </a>
+            <a class="nav-link" href="Preference.html">
+                <span class="nav-text">Preferences</span>
+            </a>
+            <a class="nav-link" href="LoginPage.html">
+                <span class="nav-text">Login</span>
+            </a>
+            <a class="nav-link" href="RegisterPage.html">
+                <span class="nav-text">Register</span>
+            </a>
+        </nav>
+<div class="flex-1 flex justify-end items-center gap-2 md:gap-4">
+        <button class="flex items-center justify-center p-2 text-slate-500 hover:text-[#116DED] transition-colors" title="Search">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+            <span class="theme-toggle-thumb">
+                <span class="material-symbols-outlined text-sm theme-toggle-icon-light">light_mode</span>
+                <span class="material-symbols-outlined text-sm theme-toggle-icon-dark">dark_mode</span>
+            </span>
+        </button>
+        <div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-slate-200 dark:border-slate-800 cursor-pointer">
+            <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIpr-IudVIxETsMsxnY12gOmXm7M9jWmMNO2m9ncqjbPMwJBVxj9MjLTkH0vRpwmoze9UdXthjOoUb6W7yRJIOSBKTPdbER0FQLMz-_Kjwd4DdeE99HuYEHvKMSCHfuIchL-EBdhHCcFKV6Ry-pzIKtjLmH39BMGr1LhBDpzIVXqfw-qGlvEgRg5eXhn38MH9y2Zl9rF6Z-ibEYVRfNLBLrfN4DOn_ZmxtIjMhFCA1K5dm_gRUN4PFGHdmsOfR7LX7sJzR_SyKGw"/>
+        </div>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-4 pt-32 pb-16 hero-bg">
+<div class="max-w-[850px] w-full flex flex-col items-center text-center">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-4xl md:text-6xl font-extrabold leading-tight pb-6">
+                        What's in your kitchen?
+                    </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-normal leading-normal pb-12 max-w-2xl">
+                        Enter your ingredients and let our AI craft the perfect meal for you. No food waste, just fresh recipes tailored to your pantry.
+                    </p>
+<div class="w-full space-y-8">
+<div class="px-4 py-3 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl shadow-[#116DED]/10 border border-slate-200 dark:border-slate-700">
+<label class="flex flex-col min-w-40 h-16 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+<div class="text-[#116DED] flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined text-3xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 text-xl font-normal leading-normal" placeholder="Add ingredients (e.g., Spinach, Eggs...)" value=""/>
+<button class="hidden md:flex items-center justify-center bg-[#116DED] px-8 rounded-xl font-bold text-white hover:brightness-110 transition-all my-1 mr-1 active:scale-95">
+                                        Add
+                                    </button>
+</div>
+</label>
+</div>
+<div class="flex flex-wrap justify-center gap-3">
+<div class="flex items-center gap-2 bg-primary-light dark:bg-[#116DED]/20 text-[#116DED] dark:text-blue-300 border border-[#116DED]/20 px-5 py-2.5 rounded-full font-semibold transition-all hover:bg-[#116DED]/10">
+<span>Chicken Breast</span>
+<span class="material-symbols-outlined text-base cursor-pointer hover:text-red-500 transition-colors">close</span>
+</div>
+<div class="flex items-center gap-2 bg-primary-light dark:bg-[#116DED]/20 text-[#116DED] dark:text-blue-300 border border-[#116DED]/20 px-5 py-2.5 rounded-full font-semibold transition-all hover:bg-[#116DED]/10">
+<span>Cherry Tomatoes</span>
+<span class="material-symbols-outlined text-base cursor-pointer hover:text-red-500 transition-colors">close</span>
+</div>
+<div class="flex items-center gap-2 bg-primary-light dark:bg-[#116DED]/20 text-[#116DED] dark:text-blue-300 border border-[#116DED]/20 px-5 py-2.5 rounded-full font-semibold transition-all hover:bg-[#116DED]/10">
+<span>Fresh Garlic</span>
+<span class="material-symbols-outlined text-base cursor-pointer hover:text-red-500 transition-colors">close</span>
+</div>
+</div>
+<div class="pt-6">
+<button class="bg-[#116DED] text-white text-xl font-bold py-5 px-14 rounded-full shadow-xl shadow-[#116DED]/40 hover:shadow-[#116DED]/60 hover:-translate-y-1 active:translate-y-0 transition-all flex items-center gap-3 mx-auto">
+<span class="material-symbols-outlined">auto_awesome</span>
+                                Find Recipes
+                            </button>
+</div>
+</div>
+<div class="mt-16 flex flex-col items-center gap-5">
+<span class="text-xs font-bold uppercase tracking-[0.25em] text-slate-400 dark:text-slate-500">Popular Ingredients</span>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-[#116DED] transition-colors border-b-2 border-transparent hover:border-[#116DED]/30 pb-1">Avocado</button>
+<button class="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-[#116DED] transition-colors border-b-2 border-transparent hover:border-[#116DED]/30 pb-1">Penne Pasta</button>
+<button class="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-[#116DED] transition-colors border-b-2 border-transparent hover:border-[#116DED]/30 pb-1">Sweet Potato</button>
+<button class="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-[#116DED] transition-colors border-b-2 border-transparent hover:border-[#116DED]/30 pb-1">Atlantic Salmon</button>
+</div>
+</div>
+</div>
+</main>
+<section class="bg-white dark:bg-slate-900/50 py-20 px-6 md:px-20 border-t border-slate-100 dark:border-slate-800">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="flex flex-col gap-6 group">
+<div class="w-full h-56 rounded-2xl bg-center bg-cover overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmrcv3lxdl68XS3uI9qUXbJlPCOYl1pAP8EckeeoaMWw_e4Qy4tZDFtLyeUhBPoohouUl8O4DLcc30hoJLH6XXkTVQ1ISORX5wkGQKq7aWJjxPNkpsgGPUz7N2vNTxmc1rL7Zi4U872_jgdTYHH9fYt8zbeBVDbIfZlk_iAn-Uinvy_LGbAKJZZwrsDrWbfpLTg97o5Cl8JCTyvGC67DN2_93uErzSWFtkUuV2ynafWc7bE-mHN30OMPwX1EKWK2vm_YsIOaRmPEVo");'></div>
+<div>
+<h3 class="font-bold text-2xl text-slate-900 dark:text-white mb-3">Smart Matching</h3>
+<p class="text-slate-500 dark:text-slate-400 leading-relaxed">Our AI analyzes flavor profiles to find recipes that maximize your ingredients and minimize shopping trips.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 group">
+<div class="w-full h-56 rounded-2xl bg-center bg-cover overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDW0BF7uXHHdaczlqeKmy8IaEGdcnBQ5Oi9rGBxOnsb9kFtfdiUqkatSkdFcwwus93TNw48i8u7keR42hocedt_x0iym-v0IvZLKNg11b6_l7VDAq8kzveyJ3RoYmdCMdmfQ-0275WaAVhh0EBLmpj3OoPmcwX0DPZ5MA5TP7-NL666ZYC7m0NYTPqQ22oLgE9tecEa2VI08aU8A-7H79iwMzLEmtBxeL1NW9z73B_GrbXixCH8bLRqKNAmJoRSb7jLa9pNzEh_injA");'></div>
+<div>
+<h3 class="font-bold text-2xl text-slate-900 dark:text-white mb-3">Step-by-Step</h3>
+<p class="text-slate-500 dark:text-slate-400 leading-relaxed">Interactive cooking modes that guide you from prep to plate with easy-to-follow visual cues.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 group">
+<div class="w-full h-56 rounded-2xl bg-center bg-cover overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQqZnGGz-39lR_Lp2hmy5vJGF6MN10c8UJ5Tx_6kEqFaLV9nL9WdFuroUEzYDJGvNUawlHgG8AN9V0HSxR2AtvVhhdl2VS4zbbVK1O3pnWtPouFvqP4OKU7T23RnMyIVgl0YpQ4fhQvZMHp17Zh1-ZnpnNSRFSPUK8ayKL--R0eKRlNyqStKY903CFAaD21ofNVZgTmRivNUY2IGngEtFvbE14599VvmDL0ckci6JZY7NJvWpoyb39TcXcZ4sAM4nXNxpMbALLB7CO");'></div>
+<div>
+<h3 class="font-bold text-2xl text-slate-900 dark:text-white mb-3">Zero Waste</h3>
+<p class="text-slate-500 dark:text-slate-400 leading-relaxed">Reduce your environmental impact and save money by using everything you have in stock.</p>
+</div>
+</div>
+</div>
+</section>
+<footer class="py-10 border-t border-slate-100 dark:border-slate-800 text-center">
+<p class="text-slate-400 text-sm font-medium">© 2024 Recipe AI Assistant. All rights reserved.</p>
+</footer>
+</div>
+</div>
+
+<script>
+    (() => {
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = stored || (root.classList.contains('dark') ? 'dark' : (root.classList.contains('light') ? 'light' : (prefersDark ? 'dark' : 'light')));
+        const setTheme = (mode) => {
+            if (mode === 'dark') {
+                root.classList.add('dark');
+                root.classList.remove('light');
+            } else {
+                root.classList.add('light');
+                root.classList.remove('dark');
+            }
+            localStorage.setItem('theme', mode);
+            document.querySelectorAll('.theme-toggle').forEach(btn => {
+                btn.classList.toggle('is-dark', mode === 'dark');
+                btn.setAttribute('aria-pressed', mode === 'dark');
+            });
+        };
+        setTheme(initial);
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.addEventListener('click', () => setTheme(root.classList.contains('dark') ? 'light' : 'dark'));
+        });
+    })();
+</script>
+</body></html>

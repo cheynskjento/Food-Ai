@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recipe AI - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary-brand: #116DED;
+        }
+        @layer base {
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#116DED",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .theme-toggle {
+            width: 56px;
+            height: 30px;
+            border-radius: 9999px;
+            padding: 3px;
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 9999px;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            transform: translateX(0);
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-icon-dark { display: none; }
+        .theme-toggle.is-dark {
+            background: #1f2937;
+            border-color: #334155;
+        }
+        .theme-toggle.is-dark .theme-toggle-thumb {
+            transform: translateX(24px);
+            background: #0f172a;
+            color: #f8fafc;
+        }
+        .theme-toggle.is-dark .theme-toggle-icon-light { display: none; }
+        .theme-toggle.is-dark .theme-toggle-icon-dark { display: inline-flex; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display transition-colors duration-300">
+<header class="flex items-center justify-between border-b border-[#e7ebf3] dark:border-[#2a3447] bg-white dark:bg-[#1a212f] px-6 md:px-10 h-16 z-50 sticky top-0">
+<div class="flex items-center gap-2.5">
+<div class="size-9 flex items-center justify-center bg-primary rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-white text-2xl">restaurant</span>
+</div>
+<h2 class="text-[#0d121b] dark:text-white text-xl font-bold leading-tight tracking-tight">Recipe AI</h2>
+</div>
+    <nav class="hidden lg:flex items-center gap-8">
+        <a class="text-[#4c669a] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="LandingPage.html">Home</a>
+        <a class="text-[#4c669a] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="SuggestedRecipe.html">Recipes</a>
+        <a class="text-[#4c669a] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="Recipe.html">Recipe Detail</a>
+        <a class="text-[#4c669a] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="ShoppingList.html">Shopping List</a>
+        <a class="text-[#4c669a] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="Preference.html">Preferences</a>
+        <a class="text-primary dark:text-primary text-sm font-semibold transition-colors" href="LoginPage.html">Login</a>
+        <a class="text-[#4c669a] dark:text-gray-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="RegisterPage.html">Register</a>
+    </nav>
+    <div class="flex items-center gap-3">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+            <span class="theme-toggle-thumb">
+                <span class="material-symbols-outlined text-sm theme-toggle-icon-light">light_mode</span>
+                <span class="material-symbols-outlined text-sm theme-toggle-icon-dark">dark_mode</span>
+            </span>
+        </button>
+        <button class="p-2 text-[#4c669a] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+<div class="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden border border-gray-100 dark:border-gray-600">
+<div class="h-full w-full flex items-center justify-center text-[#4c669a] dark:text-gray-400">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-6 relative overflow-hidden">
+<div class="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<div class="absolute bottom-[-10%] right-[-5%] w-[30%] h-[30%] bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<div class="w-full max-w-[440px] bg-white dark:bg-[#1a212f] p-8 md:p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] border border-gray-100 dark:border-gray-800">
+<div class="flex flex-col items-center mb-8 text-center">
+<div class="size-14 flex items-center justify-center bg-primary rounded-xl mb-4 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-3xl">restaurant_menu</span>
+</div>
+<h1 class="text-2xl font-bold text-[#0d121b] dark:text-white">Welcome Back</h1>
+<p class="text-[#4c669a] dark:text-gray-400 text-sm mt-2">Log in to discover AI-powered recipes tailored to you.</p>
+</div>
+<form class="space-y-5">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200 ml-1" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">mail</span>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#cfd7e7] dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary h-12 pl-12 pr-4 placeholder:text-[#4c669a] dark:placeholder:text-gray-500 text-base font-normal leading-normal transition-all" id="email" placeholder="e.g., name@example.com" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center ml-1">
+<label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200" for="password">Password</label>
+<a class="text-xs font-medium text-primary hover:underline" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">lock</span>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#cfd7e7] dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary h-12 pl-12 pr-12 placeholder:text-[#4c669a] dark:placeholder:text-gray-500 text-base font-normal leading-normal transition-all" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-2 px-1">
+<input class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="text-sm text-[#4c669a] dark:text-gray-400" for="remember">Remember me for 30 days</label>
+</div>
+<div class="pt-2">
+<button class="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:brightness-110 active:scale-[0.98] transition-all shadow-md shadow-primary/20" type="submit">
+<span class="truncate">Sign In</span>
+</button>
+</div>
+</form>
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+</div>
+<div class="relative flex justify-center text-xs uppercase">
+<span class="bg-white dark:bg-[#1a212f] px-2 text-gray-500 dark:text-gray-400">Or continue with</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 h-11 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm font-medium text-[#0d121b] dark:text-white">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5SDEQ1IBFVdzxdHkTHe2vUQFS0eN7y_UD-j9mYRSDkzZvRtqNvMxlJ0KZzos1Xz6vLHP-6D8_pxWKlgWk_Yjqu3zqna3BW2DG1yEmcnrF6XpDnsQT0Fr1zE489JUXf7qZiBpGb6De2iS_qXq9YcQepwMHvJRojh7pcaDg6jLg2IpgRAKRA6kHdikBa3KIYjNDB4l0x00r4tzTKn0VRQ33S8UroShu7lhS-z9gu5V-UoyArSRn4MVGcwbfJqcocCpxu_DmWfkVsQ"/>
+                Google
+            </button>
+<button class="flex items-center justify-center gap-2 h-11 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm font-medium text-[#0d121b] dark:text-white">
+<span class="material-symbols-outlined text-xl text-black dark:text-white">brand_family</span>
+                Github
+            </button>
+</div>
+<div class="mt-8 text-center">
+<p class="text-sm text-[#4c669a] dark:text-gray-400">
+                Don't have an account? 
+                <a class="font-bold text-primary hover:underline ml-1" href="RegisterPage.html">Create account</a>
+</p>
+</div>
+</div>
+</main>
+<footer class="p-6 text-center">
+<p class="text-xs text-[#4c669a] dark:text-gray-500">
+        © 2024 Recipe AI. Powered by cutting-edge culinary intelligence.
+    </p>
+</footer>
+
+<script>
+    (() => {
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = stored || (root.classList.contains('dark') ? 'dark' : (root.classList.contains('light') ? 'light' : (prefersDark ? 'dark' : 'light')));
+        const setTheme = (mode) => {
+            if (mode === 'dark') {
+                root.classList.add('dark');
+                root.classList.remove('light');
+            } else {
+                root.classList.add('light');
+                root.classList.remove('dark');
+            }
+            localStorage.setItem('theme', mode);
+            document.querySelectorAll('.theme-toggle').forEach(btn => {
+                btn.classList.toggle('is-dark', mode === 'dark');
+                btn.setAttribute('aria-pressed', mode === 'dark');
+            });
+        };
+        setTheme(initial);
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.addEventListener('click', () => setTheme(root.classList.contains('dark') ? 'light' : 'dark'));
+        });
+    })();
+</script>
+
+</body></html>

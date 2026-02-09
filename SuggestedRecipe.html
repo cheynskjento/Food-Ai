@@ -1,0 +1,281 @@
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recipe AI Suggestions Grid</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#116DED",
+                        "brand-blue": "#116DED",
+                        "brand-blue-hover": "#0e5bc5",
+                        "brand-blue-light": "#f0f7ff",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-link-active {
+            @apply text-brand-blue border-b-2 border-brand-blue h-full flex items-center px-1 -mb-[1px] font-semibold;
+        }
+        .nav-link {
+            @apply text-slate-500 hover:text-brand-blue h-full flex items-center px-1 transition-colors font-semibold;
+        }
+        .theme-toggle {
+            width: 56px;
+            height: 30px;
+            border-radius: 9999px;
+            padding: 3px;
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 9999px;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            transform: translateX(0);
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-icon-dark { display: none; }
+        .theme-toggle.is-dark {
+            background: #1f2937;
+            border-color: #334155;
+        }
+        .theme-toggle.is-dark .theme-toggle-thumb {
+            transform: translateX(24px);
+            background: #0f172a;
+            color: #f8fafc;
+        }
+        .theme-toggle.is-dark .theme-toggle-icon-light { display: none; }
+        .theme-toggle.is-dark .theme-toggle-icon-dark { display: inline-flex; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<div class="layout-container flex flex-col min-h-screen">
+<header class="fixed top-0 left-0 right-0 z-[60] bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-8 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-8 bg-brand-blue rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg">restaurant</span>
+</div>
+<span class="text-brand-blue text-xl font-bold tracking-tight">Recipe AI</span>
+</div>
+<nav class="flex items-center gap-8 h-full">
+    <a class="nav-link text-sm" href="LandingPage.html">Home</a>
+    <a class="nav-link-active text-sm" href="SuggestedRecipe.html">Recipes</a>
+    <a class="nav-link text-sm" href="Recipe.html">Recipe Detail</a>
+    <a class="nav-link text-sm" href="ShoppingList.html">Shopping List</a>
+    <a class="nav-link text-sm" href="Preference.html">Settings</a>
+    <a class="nav-link text-sm" href="LoginPage.html">Login</a>
+    <a class="nav-link text-sm" href="RegisterPage.html">Register</a>
+</nav>
+<div class="flex items-center gap-4">
+    <div class="flex items-center gap-2">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+            <span class="theme-toggle-thumb">
+                <span class="material-symbols-outlined text-sm theme-toggle-icon-light">light_mode</span>
+                <span class="material-symbols-outlined text-sm theme-toggle-icon-dark">dark_mode</span>
+            </span>
+        </button>
+        <button class="text-slate-500 dark:text-slate-400 hover:text-brand-blue dark:hover:text-brand-blue transition-colors p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 ring-2 ring-slate-100 dark:ring-slate-800 cursor-pointer hover:ring-brand-blue transition-all" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRL3-UIhqtEhB80ESO7gl_wv7DAMJXVcrKeqhnKXje59WHDC3DrwZP3B7ShPqnYMfsmmoYaCc_3x9l0SavQ1zNqQz81Y37XOKll6wW8sOK3MCzfdfkiZf2Q0BX-iIe7laHntfRn35YaFGWM90iHGx30Yb8z2FFSzOpP2y1aUcRz6RYmgcRUV6D_8NswLt_NzMDrG73lgaWh67GAoeVfCwJyglLRNc0Ee8Q9FosTW3fp51AWT0W-8Jri-avNtvJM7YXvuSzKDfj234g");'></div>
+</div>
+</header>
+<div class="flex flex-1 max-w-[1440px] mx-auto w-full pt-16">
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 p-6 hidden lg:block sticky top-16 h-[calc(100vh-64px)] overflow-y-auto">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col">
+<h3 class="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">Filter Options</h3>
+<div class="space-y-1">
+<label class="flex items-center gap-x-3 py-2 group cursor-pointer">
+<input checked="" class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 border-2 bg-transparent text-[#116DED] checked:bg-[#116DED] checked:border-[#116DED] focus:ring-[#116DED] focus:ring-offset-0 focus:outline-none transition-all cursor-pointer" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-200 text-sm font-medium group-hover:text-[#116DED] transition-colors">Vegetarian</span>
+</label>
+<label class="flex items-center gap-x-3 py-2 group cursor-pointer">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 border-2 bg-transparent text-[#116DED] checked:bg-[#116DED] checked:border-[#116DED] focus:ring-[#116DED] focus:ring-offset-0 focus:outline-none transition-all cursor-pointer" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-200 text-sm font-medium group-hover:text-[#116DED] transition-colors">Gluten-Free</span>
+</label>
+<label class="flex items-center gap-x-3 py-2 group cursor-pointer">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 border-2 bg-transparent text-[#116DED] checked:bg-[#116DED] checked:border-[#116DED] focus:ring-[#116DED] focus:ring-offset-0 focus:outline-none transition-all cursor-pointer" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-200 text-sm font-medium group-hover:text-[#116DED] transition-colors">Keto</span>
+</label>
+<label class="flex items-center gap-x-3 py-2 group cursor-pointer">
+<input class="h-5 w-5 rounded border-slate-300 dark:border-slate-700 border-2 bg-transparent text-[#116DED] checked:bg-[#116DED] checked:border-[#116DED] focus:ring-[#116DED] focus:ring-offset-0 focus:outline-none transition-all cursor-pointer" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-200 text-sm font-medium group-hover:text-[#116DED] transition-colors">Vegan</span>
+</label>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-widest mb-4">Prep Time</h3>
+<div class="space-y-3">
+<div class="h-1 bg-slate-200 dark:bg-slate-800 rounded-full relative">
+<div class="absolute inset-y-0 left-0 w-3/4 bg-[#116DED] rounded-full"></div>
+<div class="absolute top-1/2 left-3/4 -translate-y-1/2 size-4 bg-white border-2 border-[#116DED] rounded-full shadow-md cursor-pointer"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-slate-500 dark:text-slate-400">
+<span>5 MIN</span>
+<span class="text-[#116DED]">UNDER 45 MIN</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 p-8 lg:p-10">
+<div class="mb-8">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">AI Suggested Recipes</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">We've cooked up 24 recipes matching your pantry and dietary preferences.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<div class="group bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-200 dark:border-slate-700">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBYlmEGLu1tJuk3lxiC0GFQZs7FB8sfYo7-DhzCfzVRhmjMMi7RM8999BZnU74P7oBDK8yzE4DNMfCEwzxmJbDvGws8cggKgzVNPMAR-F3iAbX81ab1ocsiIDXI_NLceR3Mwwb0tKkqvA1vJjYYjXVUkiRd61LbREWIom1KdGd7HIHqXJYyAOEx3apYwg1zdNB9c6FCO8E6COAzWh-N4leyLr2sZ7gQeyTH2n6_ILYSl7qYHBQ1plRAjPBmXIdOt6Q439b0yxpI11HB");'></div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-[#116DED] flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">bolt</span> 98% MATCH
+                        </div>
+<button class="absolute top-3 left-3 size-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#116DED] shadow-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight mb-3 group-hover:text-[#116DED] transition-colors">Spring Avocado &amp; Egg Toast</h3>
+<div class="flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm mb-5">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">schedule</span>
+<span>15 mins</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">local_fire_department</span>
+<span>320 kcal</span>
+</div>
+</div>
+<button class="w-full bg-[#116DED] hover:bg-brand-blue-hover text-white font-bold py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            View Recipe <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-200 dark:border-slate-700">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2LBIdkKLSAKIo1pWFIPxefE0O4sYw2HBbfaBUbGS7QaDmEcijk97JS1IntiLYlhOKfywwsgFRCnWH9iVWYtSRf0Yx9_NHzK2IrDe71tl82Q29YCYs3ygB9RtEOSlKorhx7aFatWmj0AiTR2uYnFTuvhmRjSFwkvvFdToQZGxO12FkiAZYlfAexBfC9OklFN27cLETw2vTQG_h1AuEMg6pKo1amX5D3sjp_oeTxmOR27DcyND8IRknlwrhc3lh8xrXn6sU_DYP9TeT");'></div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-[#116DED] flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">bolt</span> 94% MATCH
+                        </div>
+<button class="absolute top-3 left-3 size-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-400 hover:text-[#116DED] shadow-sm hover:scale-110 transition-all">
+<span class="material-symbols-outlined text-lg">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight mb-3 group-hover:text-[#116DED] transition-colors">Zesty Lemon Garlic Salmon</h3>
+<div class="flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm mb-5">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">schedule</span>
+<span>25 mins</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">local_fire_department</span>
+<span>450 kcal</span>
+</div>
+</div>
+<button class="w-full bg-[#116DED] hover:bg-brand-blue-hover text-white font-bold py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            View Recipe <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="group bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-200 dark:border-slate-700">
+<div class="relative h-48 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXoufe4aH-YLUwwaEs5v4sQx6KIFBM1PbrQIWQeV6DvFf9M55uDCF-OhO_-I8VnNOLVS2wYwOP7OJEE-5Ml2q9cZN1aUC_RUw3PuCiSJ8M7irWSLaS-gV51UjIECGRhTZUPut8UCfmbVphPvCDa69ikGIqku1j5mwH13iENLwMGHuwW0WEmycqrCDfmvKsBcRJMdZpBdgSR0k6Ghh6kPzMbXxPBtVkB32wMbDtdEGfu1A-_ZubvoNg6H80oqYvKZA_F0piZsdmzNzk");'></div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold text-[#116DED] flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm">bolt</span> 89% MATCH
+                        </div>
+<button class="absolute top-3 left-3 size-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-400 hover:text-[#116DED] shadow-sm hover:scale-110 transition-all">
+<span class="material-symbols-outlined text-lg">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight mb-3 group-hover:text-[#116DED] transition-colors">Roasted Buddha Bowl</h3>
+<div class="flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm mb-5">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">schedule</span>
+<span>30 mins</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">local_fire_department</span>
+<span>380 kcal</span>
+</div>
+</div>
+<button class="w-full bg-[#116DED] hover:bg-brand-blue-hover text-white font-bold py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            View Recipe <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold rounded-lg hover:border-[#116DED] hover:text-[#116DED] transition-all shadow-sm">
+                    Load More Recipes
+                </button>
+</div>
+</main>
+</div>
+<div class="lg:hidden fixed bottom-6 right-6 z-[100]">
+    <button class="bg-[#116DED] size-14 rounded-full shadow-lg flex items-center justify-center text-white hover:bg-brand-blue-hover">
+        <span class="material-symbols-outlined text-3xl">filter_list</span>
+    </button>
+</div>
+</div>
+
+<script>
+    (() => {
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = stored || (root.classList.contains('dark') ? 'dark' : (root.classList.contains('light') ? 'light' : (prefersDark ? 'dark' : 'light')));
+        const setTheme = (mode) => {
+            if (mode === 'dark') {
+                root.classList.add('dark');
+                root.classList.remove('light');
+            } else {
+                root.classList.add('light');
+                root.classList.remove('dark');
+            }
+            localStorage.setItem('theme', mode);
+            document.querySelectorAll('.theme-toggle').forEach(btn => {
+                btn.classList.toggle('is-dark', mode === 'dark');
+                btn.setAttribute('aria-pressed', mode === 'dark');
+            });
+        };
+        setTheme(initial);
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.addEventListener('click', () => setTheme(root.classList.contains('dark') ? 'light' : 'dark'));
+        });
+    })();
+</script>
+
+</body></html>
