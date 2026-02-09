@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{45E92636-5610-4E28-AFB1-52B07E8DBC01}|FoodAi.Api.Tests\\FoodAi.Api.Tests.csproj|c:\\users\\verme\\desktop\\food-ai\\food_ai\\backend\\foodai.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45E92636-5610-4E28-AFB1-52B07E8DBC01}|FoodAi.Api.Tests\\FoodAi.Api.Tests.csproj|solutionrelative:foodai.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "FoodAi.Api.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "FoodAi.Api.Tests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T10:35:27.45Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
