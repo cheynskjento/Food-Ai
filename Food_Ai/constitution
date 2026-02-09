@@ -1,0 +1,29 @@
+# /constitution prompt
+Schrijf en onderhoud een project-constitution voor Food-AI. Zorg dat alle onderdelen hieronder concreet, toetsbaar en actueel zijn.
+
+## Doel van het project
+Food-AI helpt gebruikers restjes eten in te voeren en krijgt AI-gegenereerde recepten terug die passen bij die restjes.
+
+## Principes
+- Test-First: werk volgens test-driven development (unit tests en integratietests).
+- Integration-First: integreer vroeg met externe gratis AI-receptservices.
+- Security-First: behandel gebruikersdata veilig en minimaliseer opslag.
+
+## Technische en functionele eisen
+- Frontend: HTML, CSS, JavaScript.
+- Backend: C# Web API.
+- Tests: unit tests en integratietests voor kernlogica en API endpoints.
+- Functioneel:
+  - Gebruiker kan restjes/ingredienten invoeren.
+  - Backend stuurt deze naar een externe gratis AI die recepten teruggeeft.
+  - Resultaten tonen recepten die alleen de opgegeven restjes gebruiken of duidelijk alternatieven voorstellen.
+
+## Beperkingen
+- Gebruik uitsluitend gratis externe AI diensten voor recepten.
+- Geen betaalde AI APIs.
+
+## Best practices en standaarden
+- Code stijl: consistente naamgeving, duidelijke scheiding frontend/backend.
+- Security: input validatie, rate limiting voor externe calls, geen gevoelige data loggen.
+- Tests: elke nieuwe feature met unit test en relevante integratietest.
+- Documentatie: API endpoints documenteren en up-to-date houden.

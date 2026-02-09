@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recipe AI - Detailed View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#116DED",
+                        "primary-hover": "#0e5bc5",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #cbd5e1;
+        }
+        input:checked + p {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        .nav-link {
+            @apply px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors relative h-full flex items-center;
+        }
+        .nav-link.active {
+            @apply text-primary;
+        }
+        .nav-link.active::after {
+            content: '';
+            @apply absolute bottom-0 left-0 right-0 h-0.5 bg-primary;
+        }
+        .theme-toggle {
+            width: 56px;
+            height: 30px;
+            border-radius: 9999px;
+            padding: 3px;
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 9999px;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            transform: translateX(0);
+            transition: all 0.2s ease;
+        }
+        .theme-toggle-icon-dark { display: none; }
+        .theme-toggle.is-dark {
+            background: #1f2937;
+            border-color: #334155;
+        }
+        .theme-toggle.is-dark .theme-toggle-thumb {
+            transform: translateX(24px);
+            background: #0f172a;
+            color: #f8fafc;
+        }
+        .theme-toggle.is-dark .theme-toggle-icon-light { display: none; }
+        .theme-toggle.is-dark .theme-toggle-icon-dark { display: inline-flex; }
+</style>
+
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<header class="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 z-50 px-6">
+<div class="max-w-7xl mx-auto h-full flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl font-bold">auto_awesome</span>
+<span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">Recipe <span class="text-primary">AI</span></span>
+</div>
+<nav class="hidden md:flex items-center h-full space-x-2">
+    <a class="nav-link" href="LandingPage.html">Home</a>
+    <a class="nav-link" href="SuggestedRecipe.html">Recipes</a>
+    <a class="nav-link active" href="Recipe.html">Recipe Detail</a>
+    <a class="nav-link" href="ShoppingList.html">Shopping List</a>
+    <a class="nav-link" href="Preference.html">Settings</a>
+    <a class="nav-link" href="LoginPage.html">Login</a>
+    <a class="nav-link" href="RegisterPage.html">Register</a>
+</nav>
+<div class="flex items-center gap-2">
+<button class="theme-toggle" type="button" aria-label="Toggle theme">
+    <span class="theme-toggle-thumb">
+        <span class="material-symbols-outlined text-sm theme-toggle-icon-light">light_mode</span>
+        <span class="material-symbols-outlined text-sm theme-toggle-icon-dark">dark_mode</span>
+    </span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 overflow-hidden border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-xl">person</span>
+</div>
+</div>
+</div>
+</header>
+<div class="flex h-screen overflow-hidden pt-16">
+<div class="hidden lg:block lg:w-1/2 relative">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBEQyMrw3sBTKZYhieVCOT3-IjLt6pnth1Q_Jyo-GYo_lv_W2Ihpa8QSpyIXONnkgWHdzEHL45D2U2_J60PVLqERIflHlPyR0QDnG7uXd37NtWywoFCnpM6SddDfpAOdaV3F13qVqUWIRZPuFQOfO0KRLL9vco30FoB0TFkJdkJLp0cy_NVslRrLXsyOzKbo0HTbvWNjKPjtZus0zjjNsxfcPlztVnLGWpxJSm9XrmkxiKz60b5Wa6cfQqVvxL9bAiWi5eWouJRLQ')">
+<div class="absolute inset-0 bg-black/10"></div>
+<div class="absolute top-6 left-6">
+<button class="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-slate-900 font-semibold shadow-lg hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-xl text-primary">arrow_back</span>
+<span>Back to Discovery</span>
+</button>
+</div>
+<div class="absolute bottom-6 left-6 right-6 p-6 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<span class="text-white text-xs font-bold tracking-widest uppercase">AI Recommended Dish</span>
+</div>
+<p class="text-white/80 text-sm">This recipe was curated based on your preference for high-protein, keto-friendly Mediterranean cuisine.</p>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 flex flex-col h-full bg-white dark:bg-slate-900 shadow-2xl relative">
+<div class="lg:hidden flex items-center justify-between p-4 border-b dark:border-slate-800">
+<span class="material-symbols-outlined">arrow_back</span>
+<h2 class="font-bold">Recipe Detail</h2>
+<span class="material-symbols-outlined">share</span>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar px-6 py-8 md:px-12 md:py-12 pb-32">
+<div class="flex flex-wrap justify-between items-start gap-4 mb-8">
+<div class="flex-1 min-w-[300px]">
+<h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-tight mb-3">Zesty Garlic Lemon Salmon</h1>
+<div class="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-500 dark:text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-lg">timer</span> 25 mins</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-lg">restaurant</span> 2 Servings</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-lg">fitness_center</span> High Protein</span>
+</div>
+</div>
+<button class="flex items-center justify-center h-12 w-12 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-red-500 hover:bg-red-50 transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="mb-6 flex justify-between items-end border-b border-slate-100 dark:border-slate-800 pb-2">
+<h2 class="text-slate-900 dark:text-white text-2xl font-bold">Ingredients</h2>
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Metric</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 mb-12">
+<label class="flex items-start gap-x-3 py-3 group cursor-pointer border-b border-slate-50 dark:border-slate-800/50">
+<input class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary focus:ring-[#116DED]/20 checked:bg-[#116DED] checked:border-[#116DED] focus:ring-2 focus:ring-offset-0 transition-colors" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-base leading-normal group-hover:text-slate-900 dark:group-hover:text-white transition-colors">200g Fresh Salmon Fillet</p>
+</label>
+<label class="flex items-start gap-x-3 py-3 group cursor-pointer border-b border-slate-50 dark:border-slate-800/50">
+<input class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary focus:ring-[#116DED]/20 checked:bg-[#116DED] checked:border-[#116DED] focus:ring-2 focus:ring-offset-0 transition-colors" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-base leading-normal group-hover:text-slate-900 dark:group-hover:text-white transition-colors">2 tbsp Cold-pressed Olive Oil</p>
+</label>
+<label class="flex items-start gap-x-3 py-3 group cursor-pointer border-b border-slate-50 dark:border-slate-800/50">
+<input class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary focus:ring-[#116DED]/20 checked:bg-[#116DED] checked:border-[#116DED] focus:ring-2 focus:ring-offset-0 transition-colors" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-base leading-normal group-hover:text-slate-900 dark:group-hover:text-white transition-colors">3 cloves Garlic, finely minced</p>
+</label>
+<label class="flex items-start gap-x-3 py-3 group cursor-pointer border-b border-slate-50 dark:border-slate-800/50">
+<input class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary focus:ring-[#116DED]/20 checked:bg-[#116DED] checked:border-[#116DED] focus:ring-2 focus:ring-offset-0 transition-colors" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-base leading-normal group-hover:text-slate-900 dark:group-hover:text-white transition-colors">1 tsp Lemon Zest</p>
+</label>
+<label class="flex items-start gap-x-3 py-3 group cursor-pointer border-b border-slate-50 dark:border-slate-800/50">
+<input class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary focus:ring-[#116DED]/20 checked:bg-[#116DED] checked:border-[#116DED] focus:ring-2 focus:ring-offset-0 transition-colors" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-base leading-normal group-hover:text-slate-900 dark:group-hover:text-white transition-colors">1/2 cup Fresh Parsley</p>
+</label>
+<label class="flex items-start gap-x-3 py-3 group cursor-pointer border-b border-slate-50 dark:border-slate-800/50">
+<input class="mt-1 h-5 w-5 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary focus:ring-[#116DED]/20 checked:bg-[#116DED] checked:border-[#116DED] focus:ring-2 focus:ring-offset-0 transition-colors" type="checkbox"/>
+<p class="text-slate-700 dark:text-slate-300 text-base leading-normal group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Sea salt &amp; Black pepper</p>
+</label>
+</div>
+<div class="mb-6 border-b border-slate-100 dark:border-slate-800 pb-2">
+<h2 class="text-slate-900 dark:text-white text-2xl font-bold">Preparation</h2>
+</div>
+<div class="space-y-8 mb-12">
+<div class="flex gap-4">
+<div class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-sm">1</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Preheat and Prep</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed text-base">Preheat your oven to 400°F (200°C). Pat the salmon fillets dry with a paper towel and place them on a parchment-lined baking tray.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-sm">2</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Make Garlic Rub</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed text-base">In a small bowl, whisk together the olive oil, minced garlic, lemon zest, and half the parsley. Season the salmon generously with salt and pepper, then brush the garlic mixture over each fillet.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-sm">3</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">Baking</h4>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed text-base">Bake for 12–15 minutes, or until the salmon is opaque and flakes easily with a fork. Do not overcook to maintain moisture.</p>
+</div>
+</div>
+</div>
+<div class="mb-6 border-b border-slate-100 dark:border-slate-800 pb-2">
+<h2 class="text-slate-900 dark:text-white text-2xl font-bold">Nutrition Facts</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+<div class="bg-background-light dark:bg-slate-800/50 p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-1">Calories</p>
+<p class="text-2xl font-black text-[#116DED]">320</p>
+</div>
+<div class="bg-background-light dark:bg-slate-800/50 p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-1">Protein</p>
+<p class="text-2xl font-black text-[#116DED]">34g</p>
+</div>
+<div class="bg-background-light dark:bg-slate-800/50 p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-1">Fat</p>
+<p class="text-2xl font-black text-[#116DED]">18g</p>
+</div>
+<div class="bg-background-light dark:bg-slate-800/50 p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-bold uppercase mb-1">Carbs</p>
+<p class="text-2xl font-black text-[#116DED]">2g</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-100 dark:border-slate-800">
+<button class="w-full bg-[#116DED] hover:bg-[#0e5bc5] text-white font-bold py-4 rounded-xl shadow-lg shadow-[#116DED]/30 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Add to Shopping List</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+    (() => {
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = stored || (root.classList.contains('dark') ? 'dark' : (root.classList.contains('light') ? 'light' : (prefersDark ? 'dark' : 'light')));
+        const setTheme = (mode) => {
+            if (mode === 'dark') {
+                root.classList.add('dark');
+                root.classList.remove('light');
+            } else {
+                root.classList.add('light');
+                root.classList.remove('dark');
+            }
+            localStorage.setItem('theme', mode);
+            document.querySelectorAll('.theme-toggle').forEach(btn => {
+                btn.classList.toggle('is-dark', mode === 'dark');
+                btn.setAttribute('aria-pressed', mode === 'dark');
+            });
+        };
+        setTheme(initial);
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.addEventListener('click', () => setTheme(root.classList.contains('dark') ? 'light' : 'dark'));
+        });
+    })();
+</script>
+
+</body></html>
