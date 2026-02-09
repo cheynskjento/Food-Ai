@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0D7600CA-1EBF-4A2E-86A3-D6612912B5A1}|FoodAi.Api\\FoodAi.Api.csproj|c:\\users\\verme\\desktop\\food-ai\\food_ai\\backend\\foodai.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0D7600CA-1EBF-4A2E-86A3-D6612912B5A1}|FoodAi.Api\\FoodAi.Api.csproj|solutionrelative:foodai.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7600CA-1EBF-4A2E-86A3-D6612912B5A1}|FoodAi.Api\\FoodAi.Api.csproj|c:\\users\\verme\\desktop\\food-ai\\food_ai\\backend\\foodai.api\\services\\recipecacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7600CA-1EBF-4A2E-86A3-D6612912B5A1}|FoodAi.Api\\FoodAi.Api.csproj|solutionrelative:foodai.api\\services\\recipecacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7600CA-1EBF-4A2E-86A3-D6612912B5A1}|FoodAi.Api\\FoodAi.Api.csproj|c:\\users\\verme\\desktop\\food-ai\\food_ai\\backend\\foodai.api\\services\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7600CA-1EBF-4A2E-86A3-D6612912B5A1}|FoodAi.Api\\FoodAi.Api.csproj|solutionrelative:foodai.api\\services\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7600CA-1EBF-4A2E-86A3-D6612912B5A1}|FoodAi.Api\\FoodAi.Api.csproj|c:\\users\\verme\\desktop\\food-ai\\food_ai\\backend\\foodai.api\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7600CA-1EBF-4A2E-86A3-D6612912B5A1}|FoodAi.Api\\FoodAi.Api.csproj|solutionrelative:foodai.api\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{45E92636-5610-4E28-AFB1-52B07E8DBC01}|FoodAi.Api.Tests\\FoodAi.Api.Tests.csproj|c:\\users\\verme\\desktop\\food-ai\\food_ai\\backend\\foodai.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45E92636-5610-4E28-AFB1-52B07E8DBC01}|FoodAi.Api.Tests\\FoodAi.Api.Tests.csproj|solutionrelative:foodai.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +35,56 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "FoodAi.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api\\appsettings.json",
+              "RelativeToolTip": "FoodAi.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-09T11:24:48.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RecipeCacheService.cs",
+              "DocumentMoniker": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api\\Services\\RecipeCacheService.cs",
+              "RelativeDocumentMoniker": "FoodAi.Api\\Services\\RecipeCacheService.cs",
+              "ToolTip": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api\\Services\\RecipeCacheService.cs*",
+              "RelativeToolTip": "FoodAi.Api\\Services\\RecipeCacheService.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T10:42:39.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JwtTokenService.cs",
+              "DocumentMoniker": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api\\Services\\JwtTokenService.cs",
+              "RelativeDocumentMoniker": "FoodAi.Api\\Services\\JwtTokenService.cs",
+              "ToolTip": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api\\Services\\JwtTokenService.cs",
+              "RelativeToolTip": "FoodAi.Api\\Services\\JwtTokenService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T10:42:24.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api\\Services\\EmailSender.cs",
+              "RelativeDocumentMoniker": "FoodAi.Api\\Services\\EmailSender.cs",
+              "ToolTip": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api\\Services\\EmailSender.cs",
+              "RelativeToolTip": "FoodAi.Api\\Services\\EmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T10:42:12.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "C:\\Users\\verme\\Desktop\\Food-Ai\\Food_Ai\\Backend\\FoodAi.Api.Tests\\UnitTest1.cs",
               "RelativeDocumentMoniker": "FoodAi.Api.Tests\\UnitTest1.cs",
@@ -26,8 +92,7 @@
               "RelativeToolTip": "FoodAi.Api.Tests\\UnitTest1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T10:35:27.45Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-09T10:35:27.45Z"
             }
           ]
         }

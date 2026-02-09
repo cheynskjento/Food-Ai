@@ -1,15 +1,15 @@
 {
   "ConnectionStrings": {
-    "Default": ""
+    "Default": "Data Source=foodai.db"
   },
   "Jwt": {
     "Issuer": "FoodAi",
     "Audience": "FoodAi.Users",
-    "Secret": "qG7mKZ9vF2wN8pT3sR5xL1cH6yJ4uB0aE9dS7fV1nM8kP2rQ4tX6z",
+    "Secret": "",
     "ExpiresMinutes": 60
   },
   "Spoonacular": {
-    "ApiKey": "7d9616967a8943a4b2aa769dc7d225a6",
+    "ApiKey": "",
     "BaseUrl": "https://api.spoonacular.com"
   },
   "Cors": {
