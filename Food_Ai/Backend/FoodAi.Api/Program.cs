@@ -51,6 +51,10 @@ builder.Services.AddScoped<IRecipeCacheService, RecipeCacheService>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IPasswordResetService, PasswordResetService>();
+builder.Services.AddScoped<IPreferencesService, PreferencesService>();
+builder.Services.AddScoped<IRecipeSearchService, RecipeSearchService>();
+builder.Services.AddSingleton<IIngredientsNormalizer, IngredientsNormalizer>();
+builder.Services.AddScoped<IShoppingListService, ShoppingListService>();
 
 builder.Services.AddHttpClient<IRecipeClient, SpoonacularClient>();
 

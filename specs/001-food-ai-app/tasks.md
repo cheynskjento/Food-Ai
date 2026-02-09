@@ -1,4 +1,4 @@
----
+﻿﻿---
 
 description: "Task list for Food-AI End-to-End implementation"
 ---
@@ -91,28 +91,28 @@ description: "Task list for Food-AI End-to-End implementation"
 
 **Goal**: Voorkeuren opslaan en recepten zoeken met AI + caching
 
-**Independent Test**: Gebruiker kan voorkeuren opslaan en recipes ontvangen op basis van ingredi�nten
+**Independent Test**: Gebruiker kan voorkeuren opslaan en recipes ontvangen op basis van ingredi�nten
 
 ### Tests for User Story 2 (REQUIRED) ??
 
-- [ ] T034 [P] [US2] Unit test ingredient parsing/normalization in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/IngredientParserTests.cs`
-- [ ] T035 [P] [US2] Unit test preference mapping in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/PreferencesMappingTests.cs`
-- [ ] T036 [P] [US2] Integration test preferences save in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/PreferencesTests.cs`
-- [ ] T037 [P] [US2] Integration test recipe search + cache in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/RecipeSearchTests.cs`
+- [x] T034 [P] [US2] Unit test ingredient parsing/normalization in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/IngredientParserTests.cs`
+- [x] T035 [P] [US2] Unit test preference mapping in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/PreferencesMappingTests.cs`
+- [x] T036 [P] [US2] Integration test preferences save in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/PreferencesTests.cs`
+- [x] T037 [P] [US2] Integration test recipe search + cache in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/RecipeSearchTests.cs`
 
 ### Implementation for User Story 2
 
-- [ ] T038 [US2] Implement PreferencesService in `Food_Ai/Backend/FoodAi.Api/Services/PreferencesService.cs`
-- [ ] T039 [US2] Implement /preferences endpoint in `Food_Ai/Backend/FoodAi.Api/Controllers/PreferencesController.cs`
-- [ ] T040 [US2] Implement ingredient normalizer in `Food_Ai/Backend/FoodAi.Api/Services/IngredientsNormalizer.cs`
-- [ ] T041 [US2] Implement recipe search orchestration in `Food_Ai/Backend/FoodAi.Api/Services/RecipeSearchService.cs`
-- [ ] T042 [US2] Implement /recipes/search endpoint in `Food_Ai/Backend/FoodAi.Api/Controllers/RecipesController.cs`
-- [ ] T043 [US2] Update preferences UI in `Food_Ai/Front/Preference.html`
-- [ ] T044 [US2] Implement preferences form handling in `Food_Ai/Front/js/preferences.js`
-- [ ] T045 [US2] Update recipe input UI in `Food_Ai/Front/Recipe.html`
-- [ ] T046 [US2] Implement recipe search flow + loading state in `Food_Ai/Front/js/recipes.js`
-- [ ] T047 [US2] Add debounce + sessionStorage cache in `Food_Ai/Front/js/recipes.js`
-- [ ] T048 [US2] Pass search results to SuggestedRecipe in `Food_Ai/Front/js/recipes.js`
+- [x] T038 [US2] Implement PreferencesService in `Food_Ai/Backend/FoodAi.Api/Services/PreferencesService.cs`
+- [x] T039 [US2] Implement /preferences endpoint in `Food_Ai/Backend/FoodAi.Api/Controllers/PreferencesController.cs`
+- [x] T040 [US2] Implement ingredient normalizer in `Food_Ai/Backend/FoodAi.Api/Services/IngredientsNormalizer.cs`
+- [x] T041 [US2] Implement recipe search orchestration in `Food_Ai/Backend/FoodAi.Api/Services/RecipeSearchService.cs`
+- [x] T042 [US2] Implement /recipes/search endpoint in `Food_Ai/Backend/FoodAi.Api/Controllers/RecipesController.cs`
+- [x] T043 [US2] Update preferences UI in `Food_Ai/Front/Preference.html`
+- [x] T044 [US2] Implement preferences form handling in `Food_Ai/Front/js/preferences.js`
+- [x] T045 [US2] Update recipe input UI in `Food_Ai/Front/Recipe.html`
+- [x] T046 [US2] Implement recipe search flow + loading state in `Food_Ai/Front/js/recipes.js`
+- [x] T047 [US2] Add debounce + sessionStorage cache in `Food_Ai/Front/js/recipes.js`
+- [x] T048 [US2] Pass search results to SuggestedRecipe in `Food_Ai/Front/js/recipes.js`
 
 **Checkpoint**: User Stories 1 and 2 functional and independently testable
 
@@ -126,18 +126,18 @@ description: "Task list for Food-AI End-to-End implementation"
 
 ### Tests for User Story 3 (REQUIRED) ??
 
-- [ ] T049 [P] [US3] Integration test shopping list CRUD in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/ShoppingListTests.cs`
-- [ ] T050 [P] [US3] Unit test shopping list mapping in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/ShoppingListMappingTests.cs`
+- [x] T049 [P] [US3] Integration test shopping list CRUD in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/ShoppingListTests.cs`
+- [x] T050 [P] [US3] Unit test shopping list mapping in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/ShoppingListMappingTests.cs`
 
 ### Implementation for User Story 3
 
-- [ ] T051 [US3] Update contracts for shopping list delete/toggle in `specs/001-food-ai-app/contracts/openapi.yaml`
-- [ ] T052 [US3] Implement ShoppingListService in `Food_Ai/Backend/FoodAi.Api/Services/ShoppingListService.cs`
-- [ ] T053 [US3] Implement shopping list endpoints in `Food_Ai/Backend/FoodAi.Api/Controllers/ShoppingListController.cs`
-- [ ] T054 [US3] Render recipe list + filters in `Food_Ai/Front/SuggestedRecipe.html`
-- [ ] T055 [US3] Implement add-to-list + sorting in `Food_Ai/Front/js/shoppinglist.js`
-- [ ] T056 [US3] Update shopping list UI in `Food_Ai/Front/ShoppingList.html`
-- [ ] T057 [US3] Implement checkbox/remove actions + cache sync in `Food_Ai/Front/js/shoppinglist.js`
+- [x] T051 [US3] Update contracts for shopping list delete/toggle in `specs/001-food-ai-app/contracts/openapi.yaml`
+- [x] T052 [US3] Implement ShoppingListService in `Food_Ai/Backend/FoodAi.Api/Services/ShoppingListService.cs`
+- [x] T053 [US3] Implement shopping list endpoints in `Food_Ai/Backend/FoodAi.Api/Controllers/ShoppingListController.cs`
+- [x] T054 [US3] Render recipe list + filters in `Food_Ai/Front/SuggestedRecipe.html`
+- [x] T055 [US3] Implement add-to-list + sorting in `Food_Ai/Front/js/shoppinglist.js`
+- [x] T056 [US3] Update shopping list UI in `Food_Ai/Front/ShoppingList.html`
+- [x] T057 [US3] Implement checkbox/remove actions + cache sync in `Food_Ai/Front/js/shoppinglist.js`
 
 **Checkpoint**: All user stories functional and independently testable
 

@@ -17,8 +17,21 @@ async function apiRequest(path, options = {}) {
     });
 
     if (!response.ok) {
-        const text = await response.text();
-        throw new Error(text || `API error (${response.status})`);
+        let message = `API error (${response.status})`;
+        try {
+            const data = await response.json();
+            if (data && typeof data.error === "string") {
+                message = data.error;
+            } else {
+                message = JSON.stringify(data);
+            }
+        } catch {
+            const text = await response.text();
+            if (text) {
+                message = text;
+            }
+        }
+        throw new Error(message);
     }
 
     return response.status === 204 ? null : response.json();

@@ -87,10 +87,13 @@ components:
           items: { $ref: '#/components/schemas/Recipe' }
     ShoppingListAddRequest:
       type: object
-      required: [recipeId]
+      required: [recipe]
       properties:
-        recipeId:
-          type: string
+        recipe:
+          $ref: '#/components/schemas/Recipe'
+        missingIngredients:
+          type: array
+          items: { type: string }
     ShoppingListItem:
       type: object
       properties:
@@ -222,3 +225,31 @@ paths:
               schema:
                 type: array
                 items: { $ref: '#/components/schemas/ShoppingListItem' }
+  /shoppinglist/{id}:
+    delete:
+      summary: Delete shopping list item
+      security: [{ BearerAuth: [] }]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '204': { description: Deleted }
+        '404': { description: Not found }
+  /shoppinglist/{id}/toggle:
+    post:
+      summary: Toggle shopping list item
+      security: [{ BearerAuth: [] }]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ShoppingListItem' }
+        '404': { description: Not found }
