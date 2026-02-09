@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -118,38 +118,7 @@
 <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-normal">Selected Recipes</h2>
 <p class="text-slate-500 text-sm font-normal leading-normal">3 meals driving your list</p>
 </div>
-<div class="flex flex-col gap-4">
-<div class="group relative flex items-center gap-3 p-3 rounded-xl bg-secondary-blue dark:bg-primary/5 border border-primary/10 hover:border-primary/30 transition-all">
-<div class="size-12 rounded-lg bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRdbfXMNxh6inpSjfWCm8zJ82VSnUViwzev-sDt8VOTe-Dzr8iub7cXcho67KvjLxM4cVDmqRADsipXXnE-MuGyT7Aw8xjYSYnhnYOBFQwhH08DM9hlzi1eX5d8iBW2ZONzrzLhL7zdybw0y3ZNtlRDvE64X2WEKAV1WcL_litYaKJMnbst4Wen7Dz36yv3bNWI0UeEq8785rxduq3ueeHGYnx7QG7TLI2ww0471YeJzzyotNVki4HZbE-LbBvD4YKyAnwLpjZD4Yn');"></div>
-<div class="flex-1 overflow-hidden">
-<p class="text-slate-900 dark:text-white text-sm font-semibold truncate leading-tight">Lemon Herb Salmon</p>
-<p class="text-slate-500 text-xs">2 servings</p>
-</div>
-<button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-500 transition-opacity">
-<span class="material-symbols-outlined text-sm">close</span>
-</button>
-</div>
-<div class="group relative flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-primary/5 border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-all">
-<div class="size-12 rounded-lg bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBw8BVKZJGBWoh5oyxDGsCJHxBpZJNMty4zqAedVl1y4N5tXHzB9TEaDM-i5agyo-7vgnKiNZcVlDjMkWOfUS6WLN9p0501mOjcArRs3pcjKC_Td2M47vS-w4AUaloiFK2tb6G2GiIp0Bc6fiBuVKjhdmt-hMPqz92W57_xgWWoRp70TljodZ4Wsz-5W49qJkj79Dq48Iz_NMJl7xWdYo_VbIReGpP6NofxNWIqdQR1ET50ZUmAzADpuBAPjhU3SVMjS9VUrYkp248m');"></div>
-<div class="flex-1 overflow-hidden">
-<p class="text-slate-900 dark:text-white text-sm font-semibold truncate leading-tight">Quinoa Salad</p>
-<p class="text-slate-500 text-xs">4 servings</p>
-</div>
-<button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-500 transition-opacity">
-<span class="material-symbols-outlined text-sm">close</span>
-</button>
-</div>
-<div class="group relative flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-primary/5 border border-slate-100 dark:border-slate-800 hover:border-primary/30 transition-all">
-<div class="size-12 rounded-lg bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAi38AC44RDfU9VAD9LdbRTaLpfeUJZewgP3ZW_AftRDE4kjnMjVDmBRts1mvcjopjjXFHs8pmKYdwKNNCcmBIEGZ5nhuLSYFWmlycmV8CvZ0XnEmDjhPVKfLPJDCK7H20oGhvqLHk9RYoUp0-8PDz3qpyMrwBaoNmCprEg-9PJpfJnJuhiMkt-AZoQa2GZ4IrCKkYJNq8LGizVR7kHQ-qFhh3r2Q6WJPSmDj0biQw-SvRI-piH5Hg9HT45HEiM2i9ZxOt3bl74KKi-');"></div>
-<div class="flex-1 overflow-hidden">
-<p class="text-slate-900 dark:text-white text-sm font-semibold truncate leading-tight">Avocado Toast</p>
-<p class="text-slate-500 text-xs">1 serving</p>
-</div>
-<button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-500 transition-opacity">
-<span class="material-symbols-outlined text-sm">close</span>
-</button>
-</div>
-</div>
+<div id="selected-recipes" class="flex flex-col gap-4"></div>
 <div class="mt-auto pt-6">
 <button class="w-full flex items-center justify-center gap-2 rounded-xl h-12 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
 <span class="material-symbols-outlined">add_circle</span>
@@ -191,50 +160,19 @@
 </div>
 </div>
 <div class="flex-1 px-6 md:px-10 pb-20">
-<div class="mb-8">
-<h3 class="sticky top-16 z-10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md py-3 text-slate-900 dark:text-white text-xl font-bold flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 mb-4">
-<span class="material-symbols-outlined text-primary">eco</span> Produce
-                </h3>
-<div class="flex flex-col gap-1">
-<label class="group flex items-center justify-between p-3 rounded-lg hover:bg-secondary-blue/50 dark:hover:bg-primary/5 transition-colors cursor-pointer border-b border-slate-50 dark:border-slate-800">
-<div class="flex items-center gap-4">
-<div class="relative flex items-center justify-center">
-<input class="peer appearance-none size-6 rounded border-2 border-slate-300 dark:border-slate-600 checked:bg-primary checked:border-primary transition-all cursor-pointer" type="checkbox"/>
-<span class="material-symbols-outlined absolute text-white text-lg opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none">check</span>
+<div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-base">sort</span>
+<span>Sort by</span>
 </div>
-<span class="text-base text-slate-700 dark:text-slate-200 peer-checked:line-through peer-checked:text-slate-400 transition-all">Fresh Spinach</span>
+<select id="shopping-sort" class="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+<option value="recent">Most recent</option>
+<option value="name">Name</option>
+<option value="checked">Checked</option>
+</select>
 </div>
-<span class="text-slate-500 text-sm font-medium bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">2 cups</span>
-</label>
-<label class="group flex items-center justify-between p-3 rounded-lg hover:bg-secondary-blue/50 dark:hover:bg-primary/5 transition-colors cursor-pointer border-b border-slate-50 dark:border-slate-800">
-<div class="flex items-center gap-4">
-<div class="relative flex items-center justify-center">
-<input class="peer appearance-none size-6 rounded border-2 border-slate-300 dark:border-slate-600 checked:bg-primary checked:border-primary transition-all cursor-pointer" type="checkbox"/>
-<span class="material-symbols-outlined absolute text-white text-lg opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none">check</span>
-</div>
-<span class="text-base text-slate-700 dark:text-slate-200 peer-checked:line-through peer-checked:text-slate-400 transition-all">Organic Lemons</span>
-</div>
-<span class="text-slate-500 text-sm font-medium bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">3 large</span>
-</label>
-</div>
-</div>
-<div class="mb-8">
-<h3 class="sticky top-16 z-10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md py-3 text-slate-900 dark:text-white text-xl font-bold flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 mb-4">
-<span class="material-symbols-outlined text-primary">set_meal</span> Proteins
-                </h3>
-<div class="flex flex-col gap-1">
-<label class="group flex items-center justify-between p-3 rounded-lg hover:bg-secondary-blue/50 dark:hover:bg-primary/5 transition-colors cursor-pointer border-b border-slate-50 dark:border-slate-800">
-<div class="flex items-center gap-4">
-<div class="relative flex items-center justify-center">
-<input class="peer appearance-none size-6 rounded border-2 border-slate-300 dark:border-slate-600 checked:bg-primary checked:border-primary transition-all cursor-pointer" type="checkbox"/>
-<span class="material-symbols-outlined absolute text-white text-lg opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none">check</span>
-</div>
-<span class="text-base text-slate-700 dark:text-slate-200 peer-checked:line-through peer-checked:text-slate-400 transition-all">Atlantic Salmon Fillets</span>
-</div>
-<span class="text-slate-500 text-sm font-medium bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">2 x 6oz</span>
-</label>
-</div>
-</div>
+<p id="shopping-feedback" class="mb-4 text-sm font-semibold text-slate-500"></p>
+<div id="shopping-list-items" class="space-y-8"></div>
 </div>
 </section>
 </main>
@@ -271,5 +209,7 @@
         });
     })();
 </script>
+
+<script type="module" src="js/shoppinglist.js"></script>
 
 </body></html>

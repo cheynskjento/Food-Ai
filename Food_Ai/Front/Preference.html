@@ -73,6 +73,9 @@
         }
         .theme-toggle.is-dark .theme-toggle-icon-light { display: none; }
         .theme-toggle.is-dark .theme-toggle-icon-dark { display: inline-flex; }
+        .preference-card.is-selected {
+            @apply border-primary shadow-md;
+        }
     </style>
 </head>
 <body class="font-display text-[#1e293b] dark:text-slate-200 transition-colors duration-200">
@@ -123,15 +126,17 @@
 </header>
 <main class="pt-28 pb-16 px-4">
 <div class="max-w-5xl mx-auto">
+<form id="preferences-form" class="space-y-10">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
 <div class="flex flex-col gap-2 max-w-2xl">
 <h2 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-tight">Dietary Preferences</h2>
 <p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">Select your dietary requirements to help our AI tailor recipes specifically for you.</p>
 </div>
-<button class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-wide shadow-lg shadow-primary/30 hover:opacity-90 transition-all active:scale-95">
+<button id="save-preferences" type="submit" class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-wide shadow-lg shadow-primary/30 hover:opacity-90 transition-all active:scale-95">
                     Save Preferences
                 </button>
 </div>
+<p id="preferences-feedback" class="text-sm font-semibold text-slate-500 hidden"></p>
 <div class="mb-6">
 <h3 class="text-slate-900 dark:text-white text-xl font-bold flex items-center gap-2">
 <span class="material-symbols-outlined text-primary">restaurant_menu</span>
@@ -139,7 +144,8 @@
                 </h3>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
-<div class="group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="dietary" type="checkbox" value="vegetarian"/>
 <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary transition-colors">
 <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">local_florist</span>
 </div>
@@ -147,8 +153,9 @@
 <p class="text-slate-900 dark:text-white text-base font-bold">Vegetarian</p>
 <p class="text-slate-500 dark:text-slate-400 text-[10px] mt-1">No meat products</p>
 </div>
-</div>
-<div class="group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-primary transition-all shadow-md">
+</label>
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="dietary" type="checkbox" value="vegan"/>
 <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
 <span class="material-symbols-outlined text-white text-3xl active-icon">eco</span>
 </div>
@@ -156,8 +163,9 @@
 <p class="text-slate-900 dark:text-white text-base font-bold">Vegan</p>
 <p class="text-slate-500 dark:text-slate-400 text-[10px] mt-1">Plant-based only</p>
 </div>
-</div>
-<div class="group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+</label>
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="dietary" type="checkbox" value="gluten-free"/>
 <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary transition-colors">
 <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">grass</span>
 </div>
@@ -165,8 +173,9 @@
 <p class="text-slate-900 dark:text-white text-base font-bold">Gluten-Free</p>
 <p class="text-slate-500 dark:text-slate-400 text-[10px] mt-1">No wheat/barley</p>
 </div>
-</div>
-<div class="group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+</label>
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="dietary" type="checkbox" value="dairy-free"/>
 <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary transition-colors">
 <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">water</span>
 </div>
@@ -174,8 +183,9 @@
 <p class="text-slate-900 dark:text-white text-base font-bold">Dairy-Free</p>
 <p class="text-slate-500 dark:text-slate-400 text-[10px] mt-1">No milk or cheese</p>
 </div>
-</div>
-<div class="group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+</label>
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-4 p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="dietary" type="checkbox" value="low-carb"/>
 <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary transition-colors">
 <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">scale</span>
 </div>
@@ -183,7 +193,7 @@
 <p class="text-slate-900 dark:text-white text-base font-bold">Low Carb</p>
 <p class="text-slate-500 dark:text-slate-400 text-[10px] mt-1">Reduced sugars</p>
 </div>
-</div>
+</label>
 </div>
 <div class="mb-6">
 <h3 class="text-slate-900 dark:text-white text-xl font-bold flex items-center gap-2">
@@ -198,30 +208,58 @@
 <p class="text-slate-900 dark:text-white text-base font-semibold group-hover:text-primary transition-colors">Keto Friendly</p>
 <p class="text-slate-500 text-sm">High-fat, low-carb recipes</p>
 </div>
-<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all" type="checkbox"/>
+<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all preference-option" data-group="dietary" type="checkbox" value="keto"/>
 </label>
 <label class="flex items-center gap-4 py-4 border-b border-slate-100 dark:border-slate-700 cursor-pointer hover:bg-blue-50/50 dark:hover:bg-blue-900/10 px-2 rounded-lg transition-colors group">
 <div class="flex-1">
 <p class="text-slate-900 dark:text-white text-base font-semibold group-hover:text-primary transition-colors">Paleo Diet</p>
 <p class="text-slate-500 text-sm">Whole foods approach</p>
 </div>
-<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all" type="checkbox"/>
+<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all preference-option" data-group="dietary" type="checkbox" value="paleo"/>
 </label>
 <label class="flex items-center gap-4 py-4 border-b border-slate-100 dark:border-slate-700 cursor-pointer hover:bg-blue-50/50 dark:hover:bg-blue-900/10 px-2 rounded-lg transition-colors group">
 <div class="flex-1">
 <p class="text-slate-900 dark:text-white text-base font-semibold group-hover:text-primary transition-colors">Nut-Free</p>
 <p class="text-slate-500 text-sm">Strictly avoid all nuts</p>
 </div>
-<input checked="" class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all" type="checkbox"/>
+<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all preference-option" data-group="allergies" type="checkbox" value="nuts"/>
 </label>
 <label class="flex items-center gap-4 py-4 border-b border-slate-100 dark:border-slate-700 cursor-pointer hover:bg-blue-50/50 dark:hover:bg-blue-900/10 px-2 rounded-lg transition-colors group">
 <div class="flex-1">
 <p class="text-slate-900 dark:text-white text-base font-semibold group-hover:text-primary transition-colors">Shellfish-Free</p>
 <p class="text-slate-500 text-sm">Avoid all aquatic crustaceans</p>
 </div>
-<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all" type="checkbox"/>
+<input class="h-6 w-6 rounded border-slate-300 dark:border-slate-600 border-2 bg-transparent text-primary checked:bg-primary checked:border-primary checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all preference-option" data-group="allergies" type="checkbox" value="shellfish"/>
 </label>
 </div>
+</div>
+<div class="mb-6">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">public</span>
+                    Cuisine Preferences
+                </h3>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-3 p-5 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="cuisinePreferences" type="checkbox" value="italian"/>
+<span class="material-symbols-outlined text-primary text-3xl">local_pizza</span>
+<p class="text-slate-900 dark:text-white text-sm font-bold">Italian</p>
+</label>
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-3 p-5 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="cuisinePreferences" type="checkbox" value="mediterranean"/>
+<span class="material-symbols-outlined text-primary text-3xl">sailing</span>
+<p class="text-slate-900 dark:text-white text-sm font-bold">Mediterranean</p>
+</label>
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-3 p-5 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="cuisinePreferences" type="checkbox" value="asian"/>
+<span class="material-symbols-outlined text-primary text-3xl">ramen_dining</span>
+<p class="text-slate-900 dark:text-white text-sm font-bold">Asian</p>
+</label>
+<label class="preference-card group cursor-pointer flex flex-col items-center gap-3 p-5 bg-white dark:bg-slate-800 rounded-2xl border-2 border-transparent hover:border-primary/50 transition-all shadow-sm hover:shadow-md">
+<input class="sr-only preference-option" data-group="cuisinePreferences" type="checkbox" value="mexican"/>
+<span class="material-symbols-outlined text-primary text-3xl">tapas</span>
+<p class="text-slate-900 dark:text-white text-sm font-bold">Mexican</p>
+</label>
 </div>
 <div class="mt-12 flex flex-col items-center gap-4">
 <p class="text-sm text-slate-400">Can't find your restriction? <a class="text-primary hover:underline font-medium" href="#">Add a custom requirement</a></p>
@@ -231,6 +269,8 @@
                     </button>
 </div>
 </div>
+<div class="pb-8"></div>
+</form>
 </div>
 </main>
 
@@ -259,6 +299,8 @@
                 btn.addEventListener('click', () => setTheme(root.classList.contains('dark') ? 'light' : 'dark'));
             });
         })();
-    </script>
+</script>
+
+<script type="module" src="js/preferences.js"></script>
 
 </body></html>
