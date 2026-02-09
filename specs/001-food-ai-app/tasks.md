@@ -65,23 +65,23 @@ description: "Task list for Food-AI End-to-End implementation"
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T020 [P] [US1] Unit test email/password validation in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/ValidationTests.cs`
-- [ ] T021 [P] [US1] Unit test JWT generation/verification in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/JwtTokenTests.cs`
-- [ ] T022 [P] [US1] Unit test reset token hashing in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/PasswordResetTokenTests.cs`
-- [ ] T023 [P] [US1] Integration test register/login flow in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/AuthFlowTests.cs`
-- [ ] T024 [P] [US1] Integration test password reset flow in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/PasswordResetTests.cs`
+- [x] T020 [P] [US1] Unit test email/password validation in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/ValidationTests.cs`
+- [x] T021 [P] [US1] Unit test JWT generation/verification in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/JwtTokenTests.cs`
+- [x] T022 [P] [US1] Unit test reset token hashing in `Food_Ai/Backend/FoodAi.Api.Tests/Unit/PasswordResetTokenTests.cs`
+- [x] T023 [P] [US1] Integration test register/login flow in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/AuthFlowTests.cs`
+- [x] T024 [P] [US1] Integration test password reset flow in `Food_Ai/Backend/FoodAi.Api.Tests/Integration/PasswordResetTests.cs`
 
 ### Implementation for User Story 1
 
-- [ ] T025 [US1] Implement AuthService (register/login) in `Food_Ai/Backend/FoodAi.Api/Services/AuthService.cs`
-- [ ] T026 [US1] Implement PasswordResetService in `Food_Ai/Backend/FoodAi.Api/Services/PasswordResetService.cs`
-- [ ] T027 [US1] Implement /auth/register and /auth/login in `Food_Ai/Backend/FoodAi.Api/Controllers/AuthController.cs`
-- [ ] T028 [US1] Implement password reset endpoints in `Food_Ai/Backend/FoodAi.Api/Controllers/PasswordResetController.cs`
-- [ ] T029 [US1] Add auth migrations in `Food_Ai/Backend/FoodAi.Api/Data/FoodAiDbContext.cs`
-- [ ] T030 [US1] Update login UI + reset link in `Food_Ai/Front/LoginPage.html`
-- [ ] T031 [US1] Update register UI in `Food_Ai/Front/RegisterPage.html`
-- [ ] T032 [US1] Implement auth logic + token storage in `Food_Ai/Front/js/auth.js`
-- [ ] T033 [US1] Implement fetch wrapper with auth headers in `Food_Ai/Front/js/api.js`
+- [x] T025 [US1] Implement AuthService (register/login) in `Food_Ai/Backend/FoodAi.Api/Services/AuthService.cs`
+- [x] T026 [US1] Implement PasswordResetService in `Food_Ai/Backend/FoodAi.Api/Services/PasswordResetService.cs`
+- [x] T027 [US1] Implement /auth/register and /auth/login in `Food_Ai/Backend/FoodAi.Api/Controllers/AuthController.cs`
+- [x] T028 [US1] Implement password reset endpoints in `Food_Ai/Backend/FoodAi.Api/Controllers/PasswordResetController.cs`
+- [x] T029 [US1] Add auth migrations in `Food_Ai/Backend/FoodAi.Api/Data/FoodAiDbContext.cs`
+- [x] T030 [US1] Update login UI + reset link in `Food_Ai/Front/LoginPage.html`
+- [x] T031 [US1] Update register UI in `Food_Ai/Front/RegisterPage.html`
+- [x] T032 [US1] Implement auth logic + token storage in `Food_Ai/Front/js/auth.js`
+- [x] T033 [US1] Implement fetch wrapper with auth headers in `Food_Ai/Front/js/api.js`
 
 **Checkpoint**: User Story 1 fully functional and testable independently
 
@@ -240,4 +240,5 @@ With multiple developers:
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
+
 

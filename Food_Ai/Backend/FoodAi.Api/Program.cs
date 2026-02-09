@@ -27,7 +27,12 @@ builder.Services.Configure<RateLimitOptions>(builder.Configuration.GetSection(Ra
 builder.Services.Configure<CacheOptions>(builder.Configuration.GetSection(CacheOptions.SectionName));
 
 var jwtOptions = builder.Configuration.GetSection(JwtOptions.SectionName).Get<JwtOptions>() ?? new JwtOptions();
-if (string.IsNullOrWhiteSpace(jwtOptions.Secret))
+if (string.IsNullOrWhiteSpace(jwtOptions.Secret) && builder.Environment.IsEnvironment("Testing"))
+{
+    jwtOptions.Secret = "integration-test-secret-1234567890";
+}
+
+if (string.IsNullOrWhiteSpace(jwtOptions.Secret) && !builder.Environment.IsEnvironment("Testing"))
 {
     throw new InvalidOperationException("JWT secret is not configured. Set JWT_SECRET or Jwt:Secret.");
 }
@@ -44,6 +49,8 @@ builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IRecipeCacheService, RecipeCacheService>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IPasswordResetService, PasswordResetService>();
 
 builder.Services.AddHttpClient<IRecipeClient, SpoonacularClient>();
 
@@ -119,3 +126,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

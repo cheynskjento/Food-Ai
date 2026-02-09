@@ -132,7 +132,7 @@
                             Join Recipe AI and start your culinary journey today.
                         </p>
 </div>
-<form class="space-y-5" onsubmit="return false;">
+<form class="space-y-5" id="register-form">
 <div class="space-y-1.5">
 <label class="text-sm font-semibold text-gray-700 dark:text-gray-300" for="full-name">Full Name</label>
 <div class="relative">
@@ -168,6 +168,8 @@
 <span>Create Account</span>
 <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
 </button>
+<div class="text-sm text-center text-red-500 hidden" id="form-error"></div>
+<div class="text-sm text-center text-green-600 hidden" id="form-success"></div>
 </form>
 <div class="relative my-8">
 <div class="absolute inset-0 flex items-center">
@@ -230,5 +232,6 @@
             });
         })();
     </script>
+<script type="module" src="js/auth.js"></script>
 
 </body></html>

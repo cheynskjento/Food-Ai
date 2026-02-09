@@ -126,7 +126,7 @@
 <h1 class="text-2xl font-bold text-[#0d121b] dark:text-white">Welcome Back</h1>
 <p class="text-[#4c669a] dark:text-gray-400 text-sm mt-2">Log in to discover AI-powered recipes tailored to you.</p>
 </div>
-<form class="space-y-5">
+<form class="space-y-5" id="login-form">
 <div class="flex flex-col gap-2">
 <label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200 ml-1" for="email">Email Address</label>
 <div class="relative">
@@ -137,7 +137,7 @@
 <div class="flex flex-col gap-2">
 <div class="flex justify-between items-center ml-1">
 <label class="text-sm font-semibold text-[#0d121b] dark:text-gray-200" for="password">Password</label>
-<a class="text-xs font-medium text-primary hover:underline" href="#">Forgot password?</a>
+<a class="text-xs font-medium text-primary hover:underline" href="#" id="reset-request">Forgot password?</a>
 </div>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl">lock</span>
@@ -156,6 +156,8 @@
 <span class="truncate">Sign In</span>
 </button>
 </div>
+<div class="text-sm text-center text-red-500 hidden" id="form-error"></div>
+<div class="text-sm text-center text-green-600 hidden" id="form-success"></div>
 </form>
 <div class="relative my-8">
 <div class="absolute inset-0 flex items-center">
@@ -215,5 +217,6 @@
         });
     })();
 </script>
+<script type="module" src="js/auth.js"></script>
 
 </body></html>
