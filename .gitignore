@@ -1,0 +1,25 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+*.pdb
+*.cache
+packages/
+
+# Frontend
+node_modules/
+dist/
+build/
+*.log
+.env*
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
